@@ -1,0 +1,119 @@
+
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+    
+    keepalive_timeout  65;
+
+    upstream jotunheim {
+	server Alfheim.local:3000; #balder;
+    }
+
+    # if you're not using a self-signed cert, then you'd want to uncomment the following
+    server {
+        listen       80;
+        server_name  localhost;
+        return 301 https://$host$request_uri;
+    }
+
+
+    # HTTPS server
+    #
+    server {
+        # if not using a self-signed cert, remove the listen 80; line
+	#listen	     80;
+        listen       443 ssl;
+        server_name  localhost;
+
+        ssl_certificate      /usr/local/nginx/ssl/jotunheim.crt;
+        ssl_certificate_key  /usr/local/nginx/ssl/jotunheim.key;
+
+        ssl_session_cache    shared:SSL:10m;
+        ssl_session_timeout  10m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+	
+	# adds gzip options
+        gzip on;
+	gzip_types      text/css text/plain text/xml application/xml application/javascript application/x-javascript text/javascript application/json text/x-json;
+	gzip_proxied    no-store no-cache private expired auth;
+	#gzip_min_length 1000;
+	gzip_disable     "MSIE [1-6]\.";
+	
+	#PageSpeed activate!
+	pagespeed on;
+	
+	# Needs to exist and be writable by nginx. Use tmpfs for best performance.
+	pagespeed FileCachePath	/var/ngx_pagespeed_cache;
+	
+	pagespeed MaxSegmentLength 250;
+	
+	# enable CoreFilters
+	#pagespeed RewriteLevel Corefilters;
+	
+	# disable CoreFilters
+	pagespeed RewriteLevel PassThrough;
+	
+	# disable individual
+	#pagespeed DisableFilters rewrite_images;
+	
+	# force caching
+	pagespeed ForceCaching on;
+	
+	# enable specific filters
+	pagespeed EnableFilters remove_comments,collapse_whitespace,canonicalize_javascript_libraries,combine_css,rewrite_css,combine_javascript,elide_attributes,extend_cache,flatten_css_imports,lazyload_images,rewrite_javascript,rewrite_images,insert_dns_prefetch,prioritize_critical_css,fallback_rewrite_css_urls,extend_cache,rewrite_domains,insert_dns_prefetch,prioritize_critical_css;
+	pagespeed CssFlattenMaxBytes 5120;
+	pagespeed UseExperimentalJsMinifier on;
+	
+	pagespeed DomainRewriteHyperlinks on;
+	
+	# PS HTTPS
+	pagespeed FetchHttps enable,allow_self_signed;
+	
+	# Ensure requests for pagespeed optimized resources go to the pagespeed handler
+	# and no extraneous headers get set.
+	location ~ "\.pagespeed\.[a-z]{2}\.[^.]{10}\.[^.]+" { }
+	location ~ "^/pagespeed_static/" { }
+	location ~ "^/ngx_pagespeed_beacon$" { }
+	
+        location / {
+            
+	    # Backend server to forward requests to/from
+	    proxy_pass          http://jotunheim;
+	    proxy_http_version  1.1;
+	    proxy_hide_header	Cache-Control;
+	    proxy_hide_header	Expires;
+	    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+            proxy_redirect off;
+            proxy_buffering off;
+            proxy_set_header    Host            $host;
+            proxy_set_header    X-Real-IP       $remote_addr;
+            proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+            #proxy_set_header    $WSRA           $remote_addr;
+            #proxy_set_header    $WSRH           $remote_addr;
+            #proxy_set_header    $WSSN           $host;
+	    
+	    location ~* /partials/[a-zA-Z0-9]\.(html)$ {
+	        add_header Cache-Control "public, max-age=86400";
+	    }
+	    
+        }
+	
+	error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+	
+    }
+
+}
