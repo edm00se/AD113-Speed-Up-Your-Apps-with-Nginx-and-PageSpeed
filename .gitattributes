@@ -1,8 +1,8 @@
-nginx.conf_PageSpeed-ified linguist-language=text
-nginx.conf_default linguist-language=text
-nginx.conf_selfSignedSSL_PageSpeed linguist-language=text
-nginx.conf_selfSignedSSL_PageSpeed_forceSSL linguist-language=text
-nginx.conf_simpleProxy linguist-language=text
-nginx.conf_simpleSSL linguist-language=text
-nginx.conf_vanillaServer linguist-language=text
-nginx.conf_withSSLselfSigned linguist-language=text
+nginx.conf_PageSpeed-ified linguist-language=js
+nginx.conf_default linguist-language=js
+nginx.conf_selfSignedSSL_PageSpeed linguist-language=js
+nginx.conf_selfSignedSSL_PageSpeed_forceSSL linguist-language=js
+nginx.conf_simpleProxy linguist-language=js
+nginx.conf_simpleSSL linguist-language=s
+nginx.conf_vanillaServer linguist-language=js
+nginx.conf_withSSLselfSigned linguist-language=js
