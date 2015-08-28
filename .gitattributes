@@ -1,0 +1,8 @@
+nginx.conf_default linguist-language=javascript
+nginx.conf_PageSpeed-ified linguist-language=javascript
+nginx.conf_selfSignedSSL_PageSpeed linguist-language=javascript
+nginx.conf_selfSignedSSL_PageSpeed_forceSSL linguist-language=javascript
+nginx.conf_simpleProxy linguist-language=javascript
+nginx.conf_simpleSSL linguist-language=javascript
+nginx.conf_vanillaServer linguist-language=javascript
+nginx.conf_withSSLselfSigned linguist-language=javascript
