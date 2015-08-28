@@ -1,8 +1,0 @@
-*.conf_PageSpeed-ified linguist-language=js
-*.conf_default linguist-language=js
-*.conf_selfSignedSSL_PageSpeed linguist-language=js
-*.conf_selfSignedSSL_PageSpeed_forceSSL linguist-language=js
-*.conf_simpleProxy linguist-language=js
-*.conf_simpleSSL linguist-language=s
-*.conf_vanillaServer linguist-language=js
-*.conf_withSSLselfSigned linguist-language=js
