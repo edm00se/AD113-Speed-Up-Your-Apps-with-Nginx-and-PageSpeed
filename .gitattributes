@@ -1,8 +1,8 @@
-nginx.conf_PageSpeed-ified text
-nginx.conf_default text
-nginx.conf_selfSignedSSL_PageSpeed text
-nginx.conf_selfSignedSSL_PageSpeed_forceSSL text
-nginx.conf_simpleProxy text
-nginx.conf_simpleSSL text
-nginx.conf_vanillaServer text
-nginx.conf_withSSLselfSigned text
+nginx.conf_PageSpeed-ified linguist-language=text
+nginx.conf_default linguist-language=text
+nginx.conf_selfSignedSSL_PageSpeed linguist-language=text
+nginx.conf_selfSignedSSL_PageSpeed_forceSSL linguist-language=text
+nginx.conf_simpleProxy linguist-language=text
+nginx.conf_simpleSSL linguist-language=text
+nginx.conf_vanillaServer linguist-language=text
+nginx.conf_withSSLselfSigned linguist-language=text
