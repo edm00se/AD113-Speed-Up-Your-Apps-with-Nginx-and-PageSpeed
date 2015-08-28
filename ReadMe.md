@@ -44,12 +44,12 @@ To view my sample config files, check out the config folder. Here's a quick brea
 
 | Config                                      | Demonstrates                               |
 | --------------------------------------------|--------------------------------------------|
-| [nginx.conf_default](blob/master/configs/nginx.conf_default)                          | generic config, OoB                        |
-| [nginx.conf_simpleProxy](blob/master/configs/nginx.conf_simpleProxy)                      | a no-frills proxy                          |
-| [nginx.conf_vanillaServer](blob/master/configs/nginx.conf_vanillaServer)                    | simple server, no proxy                    |
-| [nginx.conf_PageSpeed-ified](blob/master/configs/nginx.conf_PageSpeed-ified)                  | ngx_pagespeed enabled w/ goodies           |
-| [nginx.conf_selfSignedSSL_PageSpeed](blob/master/configs/nginx.conf_selfSignedSSL_PageSpeed)          | w/ ngx_pagespeed & self-signed cert        |
-| [nginx.conf_selfSignedSSL_PageSpeed_forceSSL](blob/master/configs/nginx.conf_selfSignedSSL_PageSpeed_forceSSL) | w/ ngx_ps, self-signed cert, forcing HTTPS |
+| [nginx.conf_default](configs/nginx.conf_default)                          | generic config, OoB                        |
+| [nginx.conf_simpleProxy](configs/nginx.conf_simpleProxy)                      | a no-frills proxy                          |
+| [nginx.conf_vanillaServer](configs/nginx.conf_vanillaServer)                    | simple server, no proxy                    |
+| [nginx.conf_PageSpeed-ified](configs/nginx.conf_PageSpeed-ified)                  | ngx_pagespeed enabled w/ goodies           |
+| [nginx.conf_selfSignedSSL_PageSpeed](configs/nginx.conf_selfSignedSSL_PageSpeed)          | w/ ngx_pagespeed & self-signed cert        |
+| [nginx.conf_selfSignedSSL_PageSpeed_forceSSL](configs/nginx.conf_selfSignedSSL_PageSpeed_forceSSL) | w/ ngx_ps, self-signed cert, forcing HTTPS |
 
 
 ### License
