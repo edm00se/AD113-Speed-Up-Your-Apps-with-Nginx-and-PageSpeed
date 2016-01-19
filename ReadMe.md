@@ -54,4 +54,4 @@ To view my sample config files, check out the config folder. Here's a quick brea
 
 ### License
 
-As is my norm for my blog and my GitHub repositories, the work contained herein is licensed under a <a href="//creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. You may use, alter, and redistribute the code herein (with citation), while expecting no warranty for its use.
+As is my norm for my blog and my GitHub repositories, the work contained herein is licensed under <a href="http://choosealicense.com/licenses/mit">the MIT License (MIT)</a>. You may use, alter, and redistribute the code herein (with citation), while expecting no warranty for its use.
